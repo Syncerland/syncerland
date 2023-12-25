@@ -4,7 +4,7 @@ import { FC, PropsWithChildren } from "react";
 interface IProvidersProps {}
 
 const Providers: FC<PropsWithChildren<IProvidersProps>> = ({ children }) => {
-  return <NextUIProvider>{children}</NextUIProvider>;
+    return <NextUIProvider>{children}</NextUIProvider>;
 };
 
 export default Providers;
