@@ -1,7 +1,8 @@
 import { Button } from "@nextui-org/button";
-import { FC } from "react";
+import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
+import { NextPageWithLayout } from "./page";
 
-const Home: FC = () => {
+const HomePage: NextPageWithLayout = () => {
     return (
         <main>
             <Button>Press me</Button>
@@ -9,4 +10,10 @@ const Home: FC = () => {
     );
 };
 
-export default Home;
+HomePage.getLayout = (page) => {
+    const title = "Syncerland - Home";
+
+    return <PrimaryLayout pageTitle={title}>{page}</PrimaryLayout>;
+};
+
+export default HomePage;
