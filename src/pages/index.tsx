@@ -1,11 +1,11 @@
-import { Button } from "@nextui-org/button";
+import { Button } from "@nextui-org/react";
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
 import { NextPageWithLayout } from "./page";
 
 const HomePage: NextPageWithLayout = () => {
     return (
         <main>
-            <Button>Press me</Button>
+            <Button>hi</Button>
         </main>
     );
 };
