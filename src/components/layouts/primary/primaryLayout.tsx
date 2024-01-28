@@ -15,7 +15,7 @@ const PrimaryLayout: FC<PropsWithChildren<IPrimaryLayoutProps>> = ({
             <Head>
                 <title>{pageTitle}</title>
             </Head>
-            <main className={styles.main}>{children}</main>
+            <div className={styles.main}>{children}</div>
         </>
     );
 };
