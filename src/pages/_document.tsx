@@ -10,7 +10,7 @@ const Document: FC = () => {
             <Head>
                 <meta name="description" content={description} />
             </Head>
-            <body>
+            <body className="light">
                 <Main />
                 <NextScript />
             </body>

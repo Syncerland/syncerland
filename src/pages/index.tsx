@@ -1,13 +1,8 @@
-import { Button } from "@nextui-org/button";
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
 import { NextPageWithLayout } from "./page";
 
 const HomePage: NextPageWithLayout = () => {
-    return (
-        <main>
-            <Button>Press me</Button>
-        </main>
-    );
+    return <main></main>;
 };
 
 HomePage.getLayout = (page) => {
