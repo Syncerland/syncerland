@@ -1,0 +1,10 @@
+.mobile-menu {
+    position: fixed;
+    left: -320px;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.mobile-menu__open {
+    left: 0;
+}

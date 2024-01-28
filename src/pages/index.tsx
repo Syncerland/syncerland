@@ -1,13 +1,14 @@
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
+import Navbar from "@src/components/pages/landing/navbar/navbar";
 import { NextPageWithLayout } from "./page";
 
 const HomePage: NextPageWithLayout = () => {
     return (
-        <div>
-            <nav>Navbar</nav>
-            <section>Hero Section</section>
+        <div className="py-4 relative">
+            <Navbar />
+            {/* <section>Hero Section</section>
             <section>Cta</section>
-            <footer>Footer</footer>
+            <footer>Footer</footer> */}
         </div>
     );
 };
