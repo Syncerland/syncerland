@@ -28,11 +28,11 @@ const HeroSection: FC<HeroSectionProps> = () => {
             </div>
 
             <div className="flex relative my-8 justify-center overflow-hidden w-full xl:justify-end">
-                <span className="flex h-[280px] w-[280px] sm:h-[400px] sm:w-[400px] md:h-[350px] md:w-[350px] lg:h-[480px] lg:w-[480px] xl:h-[500px] xl:w-[500px] xl:mr-16 rounded-full relative bg-primary-200 -z-10 " />
+                <span className="flex h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] md:h-[350px] md:w-[350px] lg:h-[450px] lg:w-[450px] xl:h-[500px] xl:w-[500px] xl:mr-16 rounded-full relative bg-primary-200 -z-10 " />
                 <Image
                     src={backgroundImg}
                     alt="background"
-                    className="w-96 object-contain absolute -right-20 top-1/2 -translate-y-1/2 shadow-md rounded-lg sm:w-[600px]"
+                    className="w-96 object-contain absolute -right-20 top-1/2 -translate-y-1/2 shadow-md rounded-lg sm:w-[600px] md:w-[465px] lg:w-[600px]"
                 />
             </div>
         </section>
