@@ -1,6 +1,5 @@
 {
     "next": {
-        "modifyConfig": false,
-        "output": "standalone"
+        "modifyConfig": false
     }
 }
