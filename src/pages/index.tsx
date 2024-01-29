@@ -8,10 +8,6 @@ const HomePage: NextPageWithLayout = () => {
         <div className="py-4 relative">
             <Navbar />
             <HeroSection />
-
-            {/* <section>Hero Section</section>
-            <section>Cta</section>
-            <footer>Footer</footer> */}
         </div>
     );
 };
