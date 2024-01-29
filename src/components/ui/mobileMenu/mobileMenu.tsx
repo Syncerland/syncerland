@@ -1,5 +1,4 @@
-import { Button, cn } from "@nextui-org/react";
-import { CloseIcon } from "@src/components/icons/close";
+import { cn } from "@nextui-org/react";
 import { FC, PropsWithChildren } from "react";
 import styles from "./mobileMenu.module.scss";
 
@@ -26,14 +25,6 @@ const MobileMenu: FC<PropsWithChildren<MobileMenuProps>> = ({
                 }`}
             >
                 <div className="flex flex-col w-full items-center p-4 ">
-                    <Button
-                        onClick={toggle}
-                        isIconOnly
-                        radius="full"
-                        className="bg-transparent self-end"
-                    >
-                        <CloseIcon className="text-xl" />
-                    </Button>
                     {children}
                 </div>
             </div>

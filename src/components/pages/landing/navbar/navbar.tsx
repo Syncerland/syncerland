@@ -1,4 +1,5 @@
 import { Button } from "@nextui-org/react";
+import { CloseIcon } from "@src/components/icons/close";
 import { MenuIcon } from "@src/components/icons/menu";
 import MobileMenu from "@src/components/ui/mobileMenu/mobileMenu";
 import Link from "next/link";
@@ -30,6 +31,14 @@ const Navbar: FC = () => {
                     </Button>
 
                     <MobileMenu isOpen={isMenuOpen} toggle={toggleMenu}>
+                        <Button
+                            onClick={toggleMenu}
+                            isIconOnly
+                            radius="full"
+                            className="bg-transparent self-end"
+                        >
+                            <CloseIcon className="text-xl" />
+                        </Button>
                         <div className="flex flex-col gap-2 h-full justify-between w-full">
                             <div className="flex flex-col gap-2">
                                 <Link href="/">About Us</Link>
