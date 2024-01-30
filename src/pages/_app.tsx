@@ -2,7 +2,7 @@ import Providers from "@src/components/providers/providers";
 import "@src/styles/globals.scss";
 import type { AppProps } from "next/app";
 import { FC } from "react";
-import { NextPageWithLayout } from "./page";
+import { NextPageWithLayout } from "../types/page";
 
 import { Raleway } from "next/font/google";
 
