@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 
+// eslint-disable-next-line no-unused-vars
 export type UseToggle = [boolean, (state?: boolean) => void];
 
 const useToggle = (initialState?: boolean): UseToggle => {
