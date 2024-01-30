@@ -4,7 +4,9 @@ import { FC, PropsWithChildren, useState } from "react";
 
 interface ReactQueryProviderProps {}
 
-const ReactQueryProvider: FC<PropsWithChildren> = ({ children }) => {
+const ReactQueryProvider: FC<PropsWithChildren<ReactQueryProviderProps>> = ({
+    children,
+}) => {
     const [client] = useState(
         new QueryClient({
             defaultOptions: {

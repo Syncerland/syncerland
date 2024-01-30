@@ -21,6 +21,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                         onClick={() => {
                             toggleVisibility();
                         }}
+                        aria-label="password visibility switch"
                     >
                         {isVisible ? (
                             <OpenEyeIcon className="text-2xl text-default-400 mt-1" />
