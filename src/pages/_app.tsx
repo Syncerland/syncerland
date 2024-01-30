@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Providers from "@src/components/providers/providers";
 import "@src/styles/globals.scss";
 import type { AppProps } from "next/app";
@@ -22,6 +23,7 @@ const App: FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
         <Providers>
             <main className={`${raleway.className}`}>
                 {getLayout(<Component {...pageProps} />)}
+                <GoogleAnalytics gaId="G-7SNJ0N029E" />
             </main>
         </Providers>
     );
