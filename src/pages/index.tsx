@@ -1,7 +1,7 @@
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
 import HeroSection from "@src/components/pages/landing/hero/heroSection";
 import Navbar from "@src/components/pages/landing/navbar/navbar";
-import { NextPageWithLayout } from "./page";
+import { NextPageWithLayout } from "../types/page";
 
 const HomePage: NextPageWithLayout = () => {
     return (

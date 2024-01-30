@@ -4,9 +4,11 @@ import { MenuIcon } from "@src/components/icons/menu";
 import MobileMenu from "@src/components/ui/mobileMenu/mobileMenu";
 import useToggle from "@src/hooks/useToggle/useToggle";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC } from "react";
 
 const Navbar: FC = () => {
+    const router = useRouter();
     const [isMenuOpen, toggleMenu] = useToggle();
 
     return (
@@ -35,7 +37,14 @@ const Navbar: FC = () => {
 
                 {/* Desktop Navbar */}
                 <div className="hidden md:flex gap-2">
-                    <Button color="primary" radius="lg" variant="bordered">
+                    <Button
+                        color="primary"
+                        radius="lg"
+                        variant="bordered"
+                        onClick={() => {
+                            router.push("/auth/register");
+                        }}
+                    >
                         Register
                     </Button>
 
@@ -89,6 +98,9 @@ const Navbar: FC = () => {
                                     radius="lg"
                                     variant="bordered"
                                     fullWidth
+                                    onClick={() => {
+                                        router.push("/auth/register");
+                                    }}
                                 >
                                     Register
                                 </Button>
