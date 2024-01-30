@@ -83,7 +83,7 @@ const Navbar: FC = () => {
                                 </Link>
                             </div>
 
-                            <div className="flex flex-col gap-2 w-full my-5">
+                            <div className="flex flex-col gap-2 w-full my-16">
                                 <Button
                                     color="primary"
                                     radius="lg"

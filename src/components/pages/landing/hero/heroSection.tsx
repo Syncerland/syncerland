@@ -7,7 +7,7 @@ interface HeroSectionProps {}
 
 const HeroSection: FC<HeroSectionProps> = () => {
     return (
-        <section className="flex my-10 flex-col gap-8 md:flex-row md:items-center">
+        <section className="flex my-10 flex-col gap-8 md:flex-row md:items-center lg:my-20">
             <div className="px-4 flex flex-col gap-4 lg:px-20">
                 <h1 className="text-3xl font-extrabold lg:text-5xl lg:leading-[4rem]">
                     Managing Applied Jobs Made Simple
