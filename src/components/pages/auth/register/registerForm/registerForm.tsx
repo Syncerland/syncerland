@@ -1,13 +1,20 @@
 import { Button, Input, Link } from "@nextui-org/react";
 import PasswordInput from "@src/components/ui/inputs/password/passwordInput";
-import { FC, FormEvent } from "react";
+import { FC } from "react";
+import { useRegisterForm } from "./useRegisterForm";
 
 interface RegisterFormProps {}
 
 const RegisterForm: FC<RegisterFormProps> = () => {
-    const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-    };
+    const {
+        register,
+        formState: { errors, touchedFields },
+        handleSubmit,
+    } = useRegisterForm();
+
+    const submitHandler = handleSubmit((d) => {
+        //
+    });
 
     return (
         <form
@@ -30,24 +37,49 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-                <Input isRequired size="md" radius="lg" label="Name" />
-                <Input isRequired size="md" radius="lg" label="Email" />
+                <Input
+                    {...register("name")}
+                    isRequired
+                    size="md"
+                    radius="lg"
+                    label="Name"
+                    isInvalid={touchedFields.name && !!errors.name}
+                    errorMessage={errors.name?.message}
+                />
+                <Input
+                    {...register("email")}
+                    isRequired
+                    size="md"
+                    radius="lg"
+                    label="Email"
+                    isInvalid={touchedFields.email && !!errors.email}
+                    errorMessage={errors.email?.message}
+                />
                 <PasswordInput
+                    {...register("password")}
                     isRequired
                     size="md"
                     radius="lg"
                     label="Password"
+                    isInvalid={touchedFields.password && !!errors.password}
+                    errorMessage={errors.password?.message}
                 />
                 <PasswordInput
+                    {...register("confirmPassword")}
                     isRequired
                     size="md"
                     radius="lg"
                     label="Confirm Password"
+                    isInvalid={
+                        touchedFields.confirmPassword &&
+                        !!errors.confirmPassword
+                    }
+                    errorMessage={errors.confirmPassword?.message}
                 />
 
                 <p className="text-xs">
-                    Your password must include at least 8 characters, a number
-                    and a symbol.
+                    Your password must include at least 8 characters, Upper and
+                    lower case letter, a number and a symbol.
                 </p>
             </div>
 
