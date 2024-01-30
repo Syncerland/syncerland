@@ -1,4 +1,5 @@
 import { Button, Input, Link } from "@nextui-org/react";
+import PasswordInput from "@src/components/ui/inputs/password/passwordInput";
 import { FC, FormEvent } from "react";
 
 interface RegisterFormProps {}
@@ -31,13 +32,23 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             <div className="flex flex-col gap-2">
                 <Input isRequired size="md" radius="lg" label="Name" />
                 <Input isRequired size="md" radius="lg" label="Email" />
-                <Input isRequired size="md" radius="lg" label="Password" />
-                <Input
+                <PasswordInput
+                    isRequired
+                    size="md"
+                    radius="lg"
+                    label="Password"
+                />
+                <PasswordInput
                     isRequired
                     size="md"
                     radius="lg"
                     label="Confirm Password"
                 />
+
+                <p className="text-xs">
+                    Your password must include at least 8 characters, a number
+                    and a symbol.
+                </p>
             </div>
 
             <Button color="primary" type="submit" fullWidth>
