@@ -33,6 +33,7 @@ const HeroSection: FC<HeroSectionProps> = () => {
                     src={backgroundImg}
                     alt="background"
                     className="w-96 object-contain absolute -right-20 top-1/2 -translate-y-1/2 shadow-md rounded-lg sm:w-[600px] md:w-[465px] lg:w-[600px]"
+                    priority
                 />
             </div>
         </section>
