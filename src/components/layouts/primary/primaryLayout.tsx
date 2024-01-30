@@ -14,7 +14,7 @@ const PrimaryLayout: FC<PropsWithChildren<IPrimaryLayoutProps>> = ({
             <Head>
                 <title>{pageTitle}</title>
             </Head>
-            <div className="w-full">{children}</div>
+            <div className="w-full relative">{children}</div>
         </>
     );
 };

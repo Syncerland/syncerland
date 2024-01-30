@@ -18,7 +18,7 @@ const MobileMenu: FC<PropsWithChildren<MobileMenuProps>> = ({
         <>
             <div
                 className={`${cn(
-                    "flex max-h-screen h-screen w-80 bg-white shadow-2xl z-10 md:hidden",
+                    "flex max-h-screen h-screen w-80 bg-white shadow-2xl z-[1000] md:hidden",
                     className
                 )} ${styles["mobile-menu"]} ${
                     isOpen ? styles["mobile-menu__open"] : ""

@@ -12,7 +12,7 @@ const Navbar: FC = () => {
     const [isMenuOpen, toggleMenu] = useToggle();
 
     return (
-        <nav className="w-full">
+        <nav className="w-full py-4 shadow-sm">
             <section className="px-4 flex justify-between items-center lg:px-20">
                 <div className="flex items-center gap-20">
                     <h2 className="text-2xl font-semibold md:text-3xl text-primary-500">
@@ -60,6 +60,7 @@ const Navbar: FC = () => {
                         className="bg-transparent"
                         radius="full"
                         onClick={() => toggleMenu()}
+                        aria-label="mobile menu toggle"
                     >
                         <MenuIcon className="text-2xl" />
                     </Button>
