@@ -35,7 +35,9 @@ const RegisterForm: FC<RegisterFormProps> = () => {
             className="flex flex-col gap-6 w-full max-w-[448px]"
         >
             <div className="flex flex-col gap-3">
-                <h2 className="text-2xl font-bold">Register In Syncerland</h2>
+                <h1 className="lg:flex text-2xl xl:text-3xl font-bold">
+                    Welcome to the Syncerland!
+                </h1>
 
                 <p className="text-sm">
                     Already have an account?{" "}
