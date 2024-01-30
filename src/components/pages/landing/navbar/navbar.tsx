@@ -73,6 +73,7 @@ const Navbar: FC = () => {
                             isIconOnly
                             radius="full"
                             className="bg-transparent self-end"
+                            aria-label="menu toggle button"
                         >
                             <CloseIcon className="text-xl" />
                         </Button>
