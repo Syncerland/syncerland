@@ -1,5 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { CloseIcon } from "@src/components/icons/close";
+import { HomeIcon } from "@src/components/icons/home";
+import { PhoneIcon } from "@src/components/icons/home copy";
+import { InfoIcon } from "@src/components/icons/info";
 import { MenuIcon } from "@src/components/icons/menu";
 import MobileMenu from "@src/components/ui/mobileMenu/mobileMenu";
 import useToggle from "@src/hooks/useToggle/useToggle";
@@ -79,18 +82,37 @@ const Navbar: FC = () => {
                             <CloseIcon className="text-xl" />
                         </Button>
                         <div className="flex flex-col gap-2 h-full justify-between w-full">
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-3">
                                 <Link
-                                    className="text-slate-900 visited:text-slate-900"
+                                    onClick={() => toggleMenu(false)}
+                                    className="text-slate-900 visited:text-slate-900 font-medium"
                                     href="/"
                                 >
-                                    About Us
+                                    <div className="flex items-center gap-3">
+                                        <HomeIcon className="w-5 text-primary-500" />
+                                        <p className="mt-1">Home</p>
+                                    </div>
+                                </Link>
+
+                                <Link
+                                    onClick={() => toggleMenu(false)}
+                                    className="text-slate-900 visited:text-slate-900 font-medium mt-1"
+                                    href="/about-us"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <InfoIcon className="text-primary-500 text-xl" />
+                                        <p className="mt-1">About Us</p>
+                                    </div>
                                 </Link>
                                 <Link
-                                    className="text-slate-900 visited:text-slate-900"
-                                    href="/"
+                                    onClick={() => toggleMenu(false)}
+                                    className="text-slate-900 visited:text-slate-900 font-medium mt-1"
+                                    href="/contact-us"
                                 >
-                                    Contact Us
+                                    <div className="flex items-center gap-3">
+                                        <PhoneIcon className="w-5 text-primary-500" />
+                                        <p className="mt-1">Contact Us</p>
+                                    </div>
                                 </Link>
                             </div>
 
@@ -102,6 +124,7 @@ const Navbar: FC = () => {
                                     fullWidth
                                     onClick={() => {
                                         router.push("/auth/register");
+                                        toggleMenu(false);
                                     }}
                                 >
                                     Register
@@ -112,6 +135,10 @@ const Navbar: FC = () => {
                                     radius="lg"
                                     variant="solid"
                                     fullWidth
+                                    onClick={() => {
+                                        router.push("/auth/login");
+                                        toggleMenu(false);
+                                    }}
                                 >
                                     Login
                                 </Button>

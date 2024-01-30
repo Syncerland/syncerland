@@ -32,7 +32,7 @@ const MobileMenu: FC<PropsWithChildren<MobileMenuProps>> = ({
             {isOpen && (
                 <div
                     role="presentation"
-                    className="fixed top-0 left-0 z-0 w-screen h-screen"
+                    className="fixed top-0 left-0 z-[900] w-screen h-screen"
                     onClick={toggle}
                 />
             )}
