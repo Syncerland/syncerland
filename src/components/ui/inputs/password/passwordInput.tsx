@@ -1,4 +1,4 @@
-import { Input, InputProps } from "@nextui-org/react";
+import { Button, Input, InputProps } from "@nextui-org/react";
 import { CloseEyeIcon } from "@src/components/icons/closeEye";
 import { OpenEyeIcon } from "@src/components/icons/openEye";
 import useToggle from "@src/hooks/useToggle/useToggle";
@@ -14,19 +14,20 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 ref={ref}
                 type={isVisible ? "text" : "password"}
                 endContent={
-                    <button
-                        className="focus:outline-none"
+                    <Button
+                        isIconOnly
+                        className="bg-transparent"
                         type="button"
                         onClick={() => {
                             toggleVisibility();
                         }}
                     >
                         {isVisible ? (
-                            <OpenEyeIcon className="text-2xl text-default-400 pointer-events-none" />
+                            <OpenEyeIcon className="text-2xl text-default-400 mt-1" />
                         ) : (
-                            <CloseEyeIcon className="text-2xl text-default-400 pointer-events-none" />
+                            <CloseEyeIcon className="text-2xl text-default-400 mt-1" />
                         )}
-                    </button>
+                    </Button>
                 }
                 {...props}
             />
