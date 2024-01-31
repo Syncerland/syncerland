@@ -1,25 +1,38 @@
 import { Button, Input, Link } from "@nextui-org/react";
 import PasswordInput from "@src/components/ui/inputs/password/passwordInput";
 import { useRegister } from "@src/hooks/api/useRegister/useRegister";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import { toast } from "react-toastify";
 import { useRegisterForm } from "./useRegisterForm";
 
-interface RegisterFormProps {}
+interface RegisterFormProps {
+    toggleStep: () => void;
+}
 
-const RegisterForm: FC<RegisterFormProps> = () => {
+const RegisterForm: FC<RegisterFormProps> = ({ toggleStep }) => {
+    const router = useRouter();
+
+    const registerMutation = useRegister({
+        onSuccess(_, payload) {
+            // Add email address to query params
+            router.push({
+                ...router,
+                query: {
+                    ...router.query,
+                    email: payload.email,
+                },
+            });
+            toast.success("Your registration was successful!");
+            toggleStep();
+        },
+    });
+
     const {
         register,
         formState: { errors, touchedFields },
         handleSubmit,
     } = useRegisterForm();
-
-    const registerMutation = useRegister({
-        onSuccess() {
-            toast.success("Your registration was successful!");
-            // TODO: redirect user to email verification page
-        },
-    });
 
     const submitHandler = handleSubmit(({ name, email, password }) => {
         registerMutation.mutate({
