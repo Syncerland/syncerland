@@ -1,6 +1,8 @@
-import { Button } from "@nextui-org/react";
+import { Button, Spinner, cn } from "@nextui-org/react";
 import { RefreshIcon } from "@src/components/icons/refresh";
 import CountDown from "@src/components/ui/countDown/countDown";
+import { useResendOTP } from "@src/hooks/api/useResendOTP/useResendOTP";
+import { useVerifyUser } from "@src/hooks/api/useVerifyUser/useVerifyUser";
 import { falsyString } from "@src/lib/utils/falsyString";
 import { useRouter } from "next/router";
 import { CSSProperties, FC, useState } from "react";
@@ -16,13 +18,33 @@ const VerifyForm: FC<VerifyFormProps> = () => {
     const [isCountDownFinished, setIsCountDownFinished] = useState(false);
 
     const OTP_INPUT_LENGTH = 6;
-    const emailAddress = router.query.email as string;
+    const OTP_COUNT_DOWN_TIME = 120; // in seconds
+    const email = router.query.email as string;
+
+    const resendOTPMutation = useResendOTP({
+        onSuccess() {
+            // Reset OTP
+            setIsCountDownFinished(false);
+            setIsOtpDisabled(false);
+            setOtp("");
+        },
+    });
+
+    const verifyUserMutation = useVerifyUser({
+        onSuccess() {
+            router.push("/auth/login");
+        },
+        onSettled() {
+            setIsOtpDisabled(false);
+        },
+    });
 
     const handleOtpChange = (otp: string): void => {
         setOtp(otp);
 
         if (otp.length === OTP_INPUT_LENGTH) {
             setIsOtpDisabled(true);
+            verifyUserMutation.mutate({ email, OTP: otp });
         }
     };
 
@@ -43,7 +65,7 @@ const VerifyForm: FC<VerifyFormProps> = () => {
                 <p>
                     Verification email is sent to{" "}
                     <span className="text-primary-500">
-                        {falsyString(emailAddress)}
+                        {falsyString(email)}
                     </span>
                 </p>
             </div>
@@ -60,12 +82,13 @@ const VerifyForm: FC<VerifyFormProps> = () => {
                     inputStyle={otpInputStyles}
                 />
 
+                {/* CountDown Section */}
                 <div className="min-h-10">
                     {!isCountDownFinished && (
                         <span className="flex justify-between min-w-[170px] text-sm">
                             <span>Wait </span>
                             <CountDown
-                                initialSeconds={5}
+                                initialSeconds={OTP_COUNT_DOWN_TIME}
                                 onFinish={() => setIsCountDownFinished(true)}
                             />
                             <span> to resend OTP</span>
@@ -75,14 +98,29 @@ const VerifyForm: FC<VerifyFormProps> = () => {
                         <Button
                             color="primary"
                             variant="ghost"
-                            endContent={<RefreshIcon className="w-5" />}
+                            endContent={
+                                <RefreshIcon
+                                    className={cn(
+                                        "w-5",
+                                        resendOTPMutation.isPending
+                                            ? "animate-spin"
+                                            : ""
+                                    )}
+                                />
+                            }
                             onClick={() => {
-                                // Reset OTP
-                                setIsCountDownFinished(false);
+                                resendOTPMutation.mutate({ email });
                             }}
                         >
                             Resend OTP
                         </Button>
+                    )}
+                </div>
+
+                {/* Verify User Loading Spinner */}
+                <div className="min-h-10">
+                    {verifyUserMutation.isPending && (
+                        <Spinner color="primary" />
                     )}
                 </div>
             </form>

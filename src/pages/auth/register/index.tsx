@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const RegisterPage: NextPageWithLayout = () => {
     const [step, setStep] = useState<RegisterPageSteps>(
-        RegisterPageSteps.VerifyForm
+        RegisterPageSteps.RegisterForm
     );
 
     const toggleSteps = (): void => {
