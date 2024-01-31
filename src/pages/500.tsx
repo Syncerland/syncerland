@@ -10,11 +10,12 @@ const NotFoundPage: NextPageWithLayout = () => {
     const router = useRouter();
 
     return (
-        <section className="flex flex-col items-center justify-center h-[90vh] gap-12">
+        <section className="flex flex-col items-center justify-center h-[90vh]">
             <Image
                 src={bgImg}
-                alt="404"
+                alt="500"
                 className="w-[280px] sm:w-[400px] md:w-[500px]"
+                priority
             />
 
             <div className="flex flex-col gap-5 w-72 sm:w-80">
