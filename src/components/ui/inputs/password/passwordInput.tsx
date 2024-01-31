@@ -1,7 +1,6 @@
 import { Button, Input, InputProps } from "@nextui-org/react";
-import { CloseEyeIcon } from "@src/components/icons/closeEye";
-import { OpenEyeIcon } from "@src/components/icons/openEye";
 import useToggle from "@src/hooks/useToggle/useToggle";
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import { forwardRef } from "react";
 
 interface PasswordInputProps extends InputProps {}
@@ -24,9 +23,9 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                         aria-label="password visibility switch"
                     >
                         {isVisible ? (
-                            <OpenEyeIcon className="text-2xl text-default-400 mt-1" />
+                            <IconEye className="text-default-400" />
                         ) : (
-                            <CloseEyeIcon className="text-2xl text-default-400 mt-1" />
+                            <IconEyeOff className="text-default-400" />
                         )}
                     </Button>
                 }

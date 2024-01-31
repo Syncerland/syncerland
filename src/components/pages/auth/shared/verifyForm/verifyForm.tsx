@@ -1,9 +1,9 @@
-import { Button, Spinner, cn } from "@nextui-org/react";
-import { RefreshIcon } from "@src/components/icons/refresh";
+import { Button, Spinner } from "@nextui-org/react";
 import CountDown from "@src/components/ui/countDown/countDown";
 import { useResendOTP } from "@src/hooks/api/useResendOTP/useResendOTP";
 import { useVerifyUser } from "@src/hooks/api/useVerifyUser/useVerifyUser";
 import { falsyString } from "@src/lib/utils/falsyString";
+import { IconRefresh } from "@tabler/icons-react";
 import { useRouter } from "next/router";
 import { CSSProperties, FC, useState } from "react";
 import OtpInput from "react-otp-input";
@@ -98,15 +98,9 @@ const VerifyForm: FC<VerifyFormProps> = () => {
                         <Button
                             color="primary"
                             variant="ghost"
+                            isLoading={resendOTPMutation.isPending}
                             endContent={
-                                <RefreshIcon
-                                    className={cn(
-                                        "w-5",
-                                        resendOTPMutation.isPending
-                                            ? "animate-spin"
-                                            : ""
-                                    )}
-                                />
+                                !resendOTPMutation.isPending && <IconRefresh />
                             }
                             onClick={() => {
                                 resendOTPMutation.mutate({ email });
