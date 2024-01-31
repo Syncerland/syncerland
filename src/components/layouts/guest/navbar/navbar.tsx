@@ -1,11 +1,13 @@
 import { Button } from "@nextui-org/react";
-import { CloseIcon } from "@src/components/icons/close";
-import { HomeIcon } from "@src/components/icons/home";
-import { PhoneIcon } from "@src/components/icons/home copy";
-import { InfoIcon } from "@src/components/icons/info";
-import { MenuIcon } from "@src/components/icons/menu";
 import MobileMenu from "@src/components/ui/mobileMenu/mobileMenu";
 import useToggle from "@src/hooks/useToggle/useToggle";
+import {
+    IconHome,
+    IconInfoSquareRounded,
+    IconMenu2,
+    IconPhone,
+    IconX,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -72,7 +74,7 @@ const Navbar: FC = () => {
                         onClick={() => toggleMenu()}
                         aria-label="mobile menu toggle"
                     >
-                        <MenuIcon className="text-2xl" />
+                        <IconMenu2 />
                     </Button>
 
                     <MobileMenu
@@ -86,17 +88,20 @@ const Navbar: FC = () => {
                             className="bg-transparent self-end"
                             aria-label="menu toggle button"
                         >
-                            <CloseIcon className="text-xl" />
+                            <IconX />
                         </Button>
                         <div className="flex flex-col gap-2 h-full justify-between w-full">
-                            <div className="flex flex-col gap-3">
+                            <div className="flex flex-col gap-2">
                                 <Link
                                     onClick={() => toggleMenu(false)}
                                     className="text-slate-900 visited:text-slate-900 font-medium"
                                     href="/"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <HomeIcon className="w-5 text-primary-500" />
+                                        <IconHome
+                                            className="text-primary-500"
+                                            size={25}
+                                        />
                                         <p className="mt-1">Home</p>
                                     </div>
                                 </Link>
@@ -107,7 +112,10 @@ const Navbar: FC = () => {
                                     href="/about-us"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <InfoIcon className="text-primary-500 text-xl" />
+                                        <IconInfoSquareRounded
+                                            className="text-primary-500"
+                                            size={25}
+                                        />
                                         <p className="mt-1">About Us</p>
                                     </div>
                                 </Link>
@@ -117,7 +125,10 @@ const Navbar: FC = () => {
                                     href="/contact-us"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <PhoneIcon className="w-5 text-primary-500" />
+                                        <IconPhone
+                                            className="text-primary-500"
+                                            size={25}
+                                        />
                                         <p className="mt-1">Contact Us</p>
                                     </div>
                                 </Link>
