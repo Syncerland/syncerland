@@ -1,3 +1,6 @@
+import { Button } from "@nextui-org/react";
+import { RefreshIcon } from "@src/components/icons/refresh";
+import CountDown from "@src/components/ui/countDown/countDown";
 import { falsyString } from "@src/lib/utils/falsyString";
 import { useRouter } from "next/router";
 import { CSSProperties, FC, useState } from "react";
@@ -7,8 +10,10 @@ interface VerifyFormProps {}
 
 const VerifyForm: FC<VerifyFormProps> = () => {
     const router = useRouter();
+
     const [otp, setOtp] = useState("");
     const [isOtpDisabled, setIsOtpDisabled] = useState(false);
+    const [isCountDownFinished, setIsCountDownFinished] = useState(false);
 
     const OTP_INPUT_LENGTH = 6;
     const emailAddress = router.query.email as string;
@@ -54,6 +59,32 @@ const VerifyForm: FC<VerifyFormProps> = () => {
                     shouldAutoFocus
                     inputStyle={otpInputStyles}
                 />
+
+                <div className="min-h-10">
+                    {!isCountDownFinished && (
+                        <span className="flex justify-between min-w-[170px] text-sm">
+                            <span>Wait </span>
+                            <CountDown
+                                initialSeconds={5}
+                                onFinish={() => setIsCountDownFinished(true)}
+                            />
+                            <span> to resend OTP</span>
+                        </span>
+                    )}
+                    {isCountDownFinished && (
+                        <Button
+                            color="primary"
+                            variant="ghost"
+                            endContent={<RefreshIcon className="w-5" />}
+                            onClick={() => {
+                                // Reset OTP
+                                setIsCountDownFinished(false);
+                            }}
+                        >
+                            Resend OTP
+                        </Button>
+                    )}
+                </div>
             </form>
         </section>
     );
