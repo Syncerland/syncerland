@@ -26,7 +26,7 @@ const RegisterPage: NextPageWithLayout = () => {
             <section className="hidden md:flex flex-[1] xl:flex-[3] flex-col px-5 justify-center items-center bg-gray-100">
                 <Image
                     src={bgImg}
-                    alt="Register you account"
+                    alt="Register your account"
                     priority
                     className="object-contain lg:w-[800px]"
                 />

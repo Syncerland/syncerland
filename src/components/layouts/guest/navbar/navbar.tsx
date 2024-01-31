@@ -51,7 +51,14 @@ const Navbar: FC = () => {
                         Register
                     </Button>
 
-                    <Button color="primary" radius="lg" variant="solid">
+                    <Button
+                        color="primary"
+                        radius="lg"
+                        variant="solid"
+                        onClick={() => {
+                            router.push("/auth/login");
+                        }}
+                    >
                         Login
                     </Button>
                 </div>
