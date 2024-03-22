@@ -27,7 +27,7 @@ const Navbar: FC = () => {
                     <div className="hidden md:flex gap-6 items-center mt-1">
                         <Link
                             className="text-slate-900 visited:text-slate-900"
-                            href="/"
+                            href="/about-us"
                         >
                             About Us
                         </Link>
