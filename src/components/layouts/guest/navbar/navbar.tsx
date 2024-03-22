@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react";
 import MobileMenu from "@src/components/ui/mobileMenu/mobileMenu";
 import useToggle from "@src/hooks/useToggle/useToggle";
+import { getUser } from "@src/lib/utils/user";
 import {
     IconHome,
     IconInfoSquareRounded,
@@ -10,11 +11,18 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 const Navbar: FC = () => {
     const router = useRouter();
     const [isMenuOpen, toggleMenu] = useToggle();
+    const [isMounted, setIsMounted] = useToggle();
+
+    const user = getUser();
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     return (
         <nav className="w-full py-4 shadow-sm">
@@ -41,29 +49,45 @@ const Navbar: FC = () => {
                 </div>
 
                 {/* Desktop Navbar */}
-                <div className="hidden md:flex gap-2">
-                    <Button
-                        color="primary"
-                        radius="lg"
-                        variant="bordered"
-                        onClick={() => {
-                            router.push("/auth/register");
-                        }}
-                    >
-                        Register
-                    </Button>
+                {isMounted && (
+                    <div className="hidden md:flex gap-2">
+                        {!user ? (
+                            <>
+                                <Button
+                                    color="primary"
+                                    radius="lg"
+                                    variant="bordered"
+                                    onClick={() => {
+                                        router.push("/auth/register");
+                                    }}
+                                >
+                                    Register
+                                </Button>
 
-                    <Button
-                        color="primary"
-                        radius="lg"
-                        variant="solid"
-                        onClick={() => {
-                            router.push("/auth/login");
-                        }}
-                    >
-                        Login
-                    </Button>
-                </div>
+                                <Button
+                                    color="primary"
+                                    radius="lg"
+                                    variant="solid"
+                                    onClick={() => {
+                                        router.push("/auth/login");
+                                    }}
+                                >
+                                    Login
+                                </Button>
+                            </>
+                        ) : (
+                            <Button
+                                color="primary"
+                                radius="lg"
+                                onClick={() => {
+                                    router.push("/app");
+                                }}
+                            >
+                                Dashboard
+                            </Button>
+                        )}
+                    </div>
+                )}
 
                 {/* Mobile Navbar */}
                 <div className="md:hidden">
@@ -134,33 +158,54 @@ const Navbar: FC = () => {
                                 </Link>
                             </div>
 
-                            <div className="flex flex-col gap-2 w-full my-16">
-                                <Button
-                                    color="primary"
-                                    radius="lg"
-                                    variant="bordered"
-                                    fullWidth
-                                    onClick={() => {
-                                        router.push("/auth/register");
-                                        toggleMenu(false);
-                                    }}
-                                >
-                                    Register
-                                </Button>
+                            {isMounted && (
+                                <div className="flex flex-col gap-2 w-full my-16">
+                                    {!user ? (
+                                        <>
+                                            <Button
+                                                color="primary"
+                                                radius="lg"
+                                                variant="bordered"
+                                                fullWidth
+                                                onClick={() => {
+                                                    router.push(
+                                                        "/auth/register"
+                                                    );
+                                                    toggleMenu(false);
+                                                }}
+                                            >
+                                                Register
+                                            </Button>
 
-                                <Button
-                                    color="primary"
-                                    radius="lg"
-                                    variant="solid"
-                                    fullWidth
-                                    onClick={() => {
-                                        router.push("/auth/login");
-                                        toggleMenu(false);
-                                    }}
-                                >
-                                    Login
-                                </Button>
-                            </div>
+                                            <Button
+                                                color="primary"
+                                                radius="lg"
+                                                variant="solid"
+                                                fullWidth
+                                                onClick={() => {
+                                                    router.push("/auth/login");
+                                                    toggleMenu(false);
+                                                }}
+                                            >
+                                                Login
+                                            </Button>
+                                        </>
+                                    ) : (
+                                        <Button
+                                            color="primary"
+                                            radius="lg"
+                                            variant="solid"
+                                            fullWidth
+                                            onClick={() => {
+                                                router.push("/app");
+                                                toggleMenu(false);
+                                            }}
+                                        >
+                                            Dashboard
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </MobileMenu>
                 </div>
