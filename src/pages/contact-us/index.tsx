@@ -1,6 +1,6 @@
-import { Button, Input, Textarea } from "@nextui-org/react";
 import GuestLayout from "@src/components/layouts/guest/guestLayout";
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
+import ContactUsForm from "@src/components/pages/contact-us/contactUsForm/contactUsForm";
 import { NextPageWithLayout } from "@src/types/page";
 import { IconMail } from "@tabler/icons-react";
 
@@ -12,20 +12,7 @@ const ContactUsPage: NextPageWithLayout = () => {
                     ~ WAYS TO CONTACT US
                 </h2>
 
-                <form className="flex flex-col gap-3 mt-5">
-                    <p>You can contact us using this form below: </p>
-                    <Input label="name" />
-                    <Input label="email" />
-                    <Textarea label="message" maxRows={3} />
-
-                    <Button
-                        type="submit"
-                        color="primary"
-                        className="self-start"
-                    >
-                        Submit
-                    </Button>
-                </form>
+                <ContactUsForm />
 
                 <div className="flex flex-col gap-5 mt-10">
                     <div className="flex gap-2">
