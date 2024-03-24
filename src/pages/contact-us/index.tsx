@@ -9,9 +9,12 @@ const ContactUsPage: NextPageWithLayout = () => {
         <div className="flex h-[calc(100vh-4.5rem)]">
             <div className="flex flex-col w-full xl:w-1/2 px-5 lg:px-20 justify-center">
                 <h2 className="font-bold text-primary-700 md:text-2xl">
-                    ~ WAYS TO CONTACT US
+                    ~ WAYS TO FIND US
                 </h2>
 
+                <p className="my-2 text-xs md:text-base">
+                    You can reach us using the form below:{" "}
+                </p>
                 <ContactUsForm />
 
                 <div className="flex flex-col gap-5 mt-10">

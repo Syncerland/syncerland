@@ -20,8 +20,7 @@ const ContactUsForm: FC = () => {
     }, [isSubmitSuccessful]);
 
     return (
-        <form onSubmit={submitHandler} className="flex flex-col gap-3 mt-5">
-            <p>You can contact us using this form below: </p>
+        <form onSubmit={submitHandler} className="flex flex-col gap-3">
             <Input
                 isRequired
                 label="name"
