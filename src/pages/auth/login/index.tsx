@@ -24,7 +24,7 @@ const LoginPage: NextPageWithLayout = () => {
 };
 
 LoginPage.getLayout = (page) => {
-    const title = "Syncerland - Register";
+    const title = "Syncerland - Login";
 
     return (
         <PrimaryLayout pageTitle={title}>
