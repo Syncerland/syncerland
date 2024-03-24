@@ -41,7 +41,7 @@ const Navbar: FC = () => {
                         </Link>
                         <Link
                             className="text-slate-900 visited:text-slate-900"
-                            href="/"
+                            href="/contact-us"
                         >
                             Contact Us
                         </Link>

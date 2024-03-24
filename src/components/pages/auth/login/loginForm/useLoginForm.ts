@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PASSWORD_REGEX } from "@src/lib/utils/regex";
 import { UseFormProps, UseFormReturn, useForm } from "react-hook-form";
-import * as zod from "zod";
+import { z as zod } from "zod";
 
 interface LoginFormData {
     email: string;
@@ -14,6 +14,7 @@ const schema = zod.object({
             required_error: "Email is required",
             invalid_type_error: "Email must be string",
         })
+        .trim()
         .email("Enter your email in correct format"),
     password: zod
         .string({

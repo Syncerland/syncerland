@@ -3,10 +3,11 @@ import { GithubIcon } from "@src/components/icons/github";
 import GuestLayout from "@src/components/layouts/guest/guestLayout";
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
 import { NextPageWithLayout } from "@src/types/page";
+
 const AboutUsPage: NextPageWithLayout = () => {
     return (
-        <div className="flex">
-            <div className="flex flex-col px-5 py-5 justify-center h-[calc(100vh-4.5rem)] lg:px-20">
+        <div className="flex h-[calc(100vh-4.5rem)]">
+            <div className="flex flex-col px-5 py-5 justify-center xl:w-1/2 lg:px-20">
                 <h2 className="font-bold text-primary-700 md:text-2xl">
                     ~ WHO WE ARE
                 </h2>
