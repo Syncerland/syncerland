@@ -36,9 +36,9 @@ const RegisterForm: FC<RegisterFormProps> = ({ toggleStep }) => {
 
     const submitHandler = handleSubmit(({ name, email, password }) => {
         registerMutation.mutate({
-            name,
-            email,
             password,
+            name: name.trim(),
+            email: email.trim().toLowerCase(),
         });
     });
 

@@ -28,8 +28,8 @@ const LoginForm: FC<LoginFormProps> = () => {
 
     const submitHandler = handleSubmit(({ email, password }) => {
         loginMutation.mutate({
-            email,
             password,
+            email: email.trim().toLocaleLowerCase(),
         });
     });
 
