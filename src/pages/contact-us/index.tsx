@@ -29,7 +29,7 @@ const ContactUsPage: NextPageWithLayout = () => {
 
             <div className="bg-primary-500 flex-1 relative hidden xl:flex justify-center items-center overflow-hidden">
                 <h1 className="text-5xl text-white font-extrabold">
-                    CONTACT US
+                    Contact Us
                 </h1>
 
                 <div className="w-96 h-96 rounded-full bg-slate-200 absolute opacity-50 -bottom-28 -right-28"></div>
