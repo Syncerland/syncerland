@@ -1,4 +1,4 @@
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Textarea } from "@nextui-org/react";
 import GuestLayout from "@src/components/layouts/guest/guestLayout";
 import PrimaryLayout from "@src/components/layouts/primary/primaryLayout";
 import { NextPageWithLayout } from "@src/types/page";
@@ -16,7 +16,7 @@ const ContactUsPage: NextPageWithLayout = () => {
                     <p>You can contact us using this form below: </p>
                     <Input label="name" />
                     <Input label="email" />
-                    <Input label="message" />
+                    <Textarea label="message" maxRows={3} />
 
                     <Button
                         type="submit"
